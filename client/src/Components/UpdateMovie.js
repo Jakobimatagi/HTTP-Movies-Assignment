@@ -41,7 +41,7 @@ const UpdateMovie = (props) => {
         console.log(res);
 
         props.setMovie(res.data);
-        push(`/api/movies/${id}`);
+        push(`/api/movies`);
       })
       .catch((err) => console.log(err));
   };
@@ -49,7 +49,7 @@ const UpdateMovie = (props) => {
   return (
     <div>
       <h2>Update Movie</h2>
-      <form >
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="title"
@@ -78,7 +78,7 @@ const UpdateMovie = (props) => {
           placeHolder="Title"
           value={movie.stars}
         />
-        <button onClick={handleSubmit}>Submit</button>
+        <button >Submit</button>
       </form>
     </div>
   );
