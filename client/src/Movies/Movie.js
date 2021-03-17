@@ -7,7 +7,7 @@ function Movie(props) {
   const [movie, setMovie] = useState(null);
   const params = useParams();
 
-  console.log(props)
+  
   const fetchMovie = (id) => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
@@ -33,11 +33,12 @@ function Movie(props) {
   }
   const handleDelete = (e) => {
     e.preventDefault();
-    axios.delete(`http://localhost:3000/api/movies/${movie.id}`)
-    .then(res => props.setMovies(res.data))
+    axios.delete(`http://localhost:5000/api/movies/${movie.id}`)
+    .then(res => props.setMovie(res.data))
     .catch(err => console.log(err))
     props.history.push('/')
   }
+  
   return (
     <div className="save-wrapper">
       <MovieCard movie={movie} />
